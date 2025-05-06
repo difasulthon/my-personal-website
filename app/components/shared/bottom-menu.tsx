@@ -27,14 +27,14 @@ export default function BottomMenu() {
   const menuActiveStyle = 'dark:bg-white bg-black dark:text-black text-white font-medium'
 
   return (
-    <section className='fixed bottom-0 left-0 w-full p-4 flex flex-row justify-between dark:bg-backgroundDark bg-gray-100 md:hidden z-50'>
+    <section className='fixed bottom-0 left-0 w-full py-4 px-12 flex flex-row justify-between dark:bg-backgroundDark bg-gray-100 md:hidden z-50'>
       {MENU.map((menu) => (
         <Link
           key={menu.id} 
           to={menu.href} 
           className={`
-            ${currentPath === menu.href ? `${menuActiveStyle}` : `${textStyle}`} 
-            px-2 rounded-sm
+              ${currentPath === menu.href ? `${menuActiveStyle}` : `${textStyle}`} 
+              px-2 py-2 rounded-sm
             `}
           >
             <MenuIcon title={menu.title} />
