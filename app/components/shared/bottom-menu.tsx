@@ -1,0 +1,45 @@
+import { Link, useLocation } from '@remix-run/react'
+import { GoHomeFill } from "react-icons/go";
+import { FaToolbox } from "react-icons/fa6";
+import { RiClapperboardFill } from "react-icons/ri";
+import { FaPerson } from "react-icons/fa6";
+
+import { MENU } from '~/constants'
+
+function MenuIcon({title}: {title: string}) {
+  switch(title) {
+    case 'Home':
+      return <GoHomeFill />
+    case 'Experiences':
+      return <FaToolbox />
+    case 'Projects':
+      return <RiClapperboardFill />
+    case 'About':
+      return <FaPerson />
+  }
+}
+
+export default function BottomMenu() {
+  const location = useLocation();
+  const currentPath = location.pathname;
+
+  const textStyle = 'dark:text-white text-black font-normal hover:bg-gray-300 dark:hover:text-black dark:hover:bg-gray-300'
+  const menuActiveStyle = 'dark:bg-white bg-black dark:text-black text-white font-medium'
+
+  return (
+    <section className='fixed bottom-0 left-0 w-full p-4 flex flex-row justify-between dark:bg-backgroundDark bg-gray-100 md:hidden z-50'>
+      {MENU.map((menu) => (
+        <Link
+          key={menu.id} 
+          to={menu.href} 
+          className={`
+            ${currentPath === menu.href ? `${menuActiveStyle}` : `${textStyle}`} 
+            px-2 rounded-sm
+            `}
+          >
+            <MenuIcon title={menu.title} />
+        </Link>
+      ))}
+    </section>
+  )
+}
