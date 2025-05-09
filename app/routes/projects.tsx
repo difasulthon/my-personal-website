@@ -1,5 +1,7 @@
 import type { MetaFunction } from "@remix-run/node";
 
+import NotFound from "~/components/shared/not-found";
+
 export const meta: MetaFunction = () => {
   return [
     { title: "Difa Sulthon | Projects" },
@@ -9,6 +11,6 @@ export const meta: MetaFunction = () => {
 
 export default function Projects() {
   return (
-    <div>Projects</div>
+    <NotFound />
   )
 }
