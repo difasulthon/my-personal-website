@@ -34,15 +34,16 @@ export default function HeroConnectionButton() {
         <SiMedium className="md:w-6 md:h-6 w-4 h-4" />
         <p className="font-medium text-sm">follow</p>
       </Link>
-      <Link
-        to='/files/Resume_Muhammad Difa Sulthon Diani.pdf'
+      <a
+        href='/files/Resume_Muhammad Difa Sulthon Diani.pdf'
+        download
         target="_blank"
         rel="noopener noreferrer"
         className="flex flex-row items-center gap-2 py-2 px-2 rounded-md md:bg-gray-300 bg-[#0e76a8] md:hover:bg-[#0e76a8]"
       >
         <IoMdCloudDownload className="md:w-6 md:h-6 w-4 h-4" color="white" />
         <p className="font-medium text-sm text-white">CV</p>
-      </Link>
+      </a>
     </section>
   )
 }
