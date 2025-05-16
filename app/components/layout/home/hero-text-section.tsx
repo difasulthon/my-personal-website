@@ -6,7 +6,7 @@ interface Props {
 export default function HeroTextSection({isMobile = false}: Props) {
   const nameTextStyle = `font-bold md:text-4xl text-xl dark:text-gray-300 text-black`
   const roleTextStyle = 'font-medium md:text-lg text-sm text-black dark:text-gray-300'
-  const introductionTextStyle = `font-normal md:text-sm text-xs dark:text-gray-500 text-gray-400 text-justify md:max-w-[32vw] max-w-[75vw] mt-3`
+  const introductionTextStyle = `font-normal md:text-sm text-xs dark:text-gray-300 text-gray-700 text-justify md:max-w-[32vw] max-w-[75vw] mt-3`
 
   if (isMobile) {
     return (

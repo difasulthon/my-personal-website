@@ -36,7 +36,7 @@ export default function Index() {
         <motion.section
           initial={{ opacity: 0 }}
           animate={{ opacity: isIntroInView ? 1 : 0 }}
-          transition={{ duration: 3 }}
+          transition={{ duration: 1 }}
           className="font-lexendDeca py-6"
         >
           <HeroTextSection />
@@ -45,7 +45,7 @@ export default function Index() {
         <motion.section
           initial={{ opacity: 0 }}
           animate={{ opacity: isIntroInView ? 1 : 0 }}
-          transition={{ duration: 3 }}
+          transition={{ duration: 1 }}
         >
           <img
             src="/images/hero-difa.png"
@@ -58,7 +58,7 @@ export default function Index() {
         <motion.section
           initial={{ opacity: 0 }}
           animate={{ opacity: isIntroInView ? 1 : 0 }}
-          transition={{ duration: 3 }}
+          transition={{ duration: 1 }}
         >
           <HeroTextSection isMobile />
         </motion.section>
@@ -80,7 +80,7 @@ export default function Index() {
           initial="hidden"
           animate={isTrackRecordsInView ? "visible" : "hidden"}
           transition={{ duration: 0.5, delay: 0.2 }}
-          className="font-lexendDeca font-normal md:text-sm text-xs dark:text-gray-500 text-gray-400 md:max-w-[40vw] max-w-[75vw] mt-2 text-justify"
+          className="font-lexendDeca font-normal md:text-sm text-xs dark:text-gray-400 text-gray-600 md:max-w-[40vw] max-w-[75vw] mt-2 text-justify"
         >
           I’ve been building and shipping mobile applications with a focus on intuitive design, performance, and reliability. Over the years, I’ve contributed to projects of varying scale — from lightweight apps to complex systems — and collaborated with teams of all sizes, including cross-squad coordination in larger environments. Along the way, I’ve also deepened my knowledge through hands-on learning and structured training programs.
         </motion.p>

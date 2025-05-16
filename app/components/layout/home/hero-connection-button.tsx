@@ -11,7 +11,7 @@ export default function HeroConnectionButton() {
         to='https://www.linkedin.com/in/difasulthon/'
         target="_blank"
         rel="noopener noreferrer"
-        className="flex flex-row items-center gap-2 py-2 px-2 rounded-md md:bg-gray-300 bg-[#0e76a8] md:hover:bg-[#0e76a8]"
+        className="flex flex-row items-center gap-2 py-2 px-2 rounded-md md:bg-gray-500 bg-[#0e76a8] md:hover:bg-[#0e76a8]"
       >
         <ImLinkedin className="md:w-6 md:h-6 w-4 h-4" color="white" />
         <p className="font-medium text-sm text-white">connect</p>
@@ -20,7 +20,7 @@ export default function HeroConnectionButton() {
         to='https://github.com/difasulthon'
         target="_blank"
         rel="noopener noreferrer"
-        className="flex flex-row items-center gap-2 py-2 px-2 rounded-md md:bg-gray-300 bg-black md:dark:hover:bg-white md:hover:bg-black dark:text-white text-white dark:hover:text-black hover:text-white"
+        className="flex flex-row items-center gap-2 py-2 px-2 rounded-md md:bg-gray-500 bg-black md:dark:hover:bg-white md:hover:bg-black dark:text-white text-white dark:hover:text-black hover:text-white"
       >
         <FaGithub className="md:w-6 md:h-6 w-4 h-4"/>
         <p className="font-medium text-sm">follow</p>
@@ -29,7 +29,7 @@ export default function HeroConnectionButton() {
         to='https://medium.com/@mdifasulthon'
         target="_blank"
         rel="noopener noreferrer"
-        className="flex flex-row items-center gap-2 py-2 px-2 rounded-md md:bg-gray-300 bg-black md:dark:hover:bg-white md:hover:bg-black dark:text-white text-white dark:hover:text-black hover:text-white"
+        className="flex flex-row items-center gap-2 py-2 px-2 rounded-md md:bg-gray-500 bg-black md:dark:hover:bg-white md:hover:bg-black dark:text-white text-white dark:hover:text-black hover:text-white"
       >
         <SiMedium className="md:w-6 md:h-6 w-4 h-4" />
         <p className="font-medium text-sm">follow</p>
@@ -39,7 +39,7 @@ export default function HeroConnectionButton() {
         download
         target="_blank"
         rel="noopener noreferrer"
-        className="flex flex-row items-center gap-2 py-2 px-2 rounded-md md:bg-gray-300 bg-[#0e76a8] md:hover:bg-[#0e76a8]"
+        className="flex flex-row items-center gap-2 py-2 px-2 rounded-md md:bg-gray-500 bg-[#0e76a8] md:hover:bg-[#0e76a8]"
       >
         <IoMdCloudDownload className="md:w-6 md:h-6 w-4 h-4" color="white" />
         <p className="font-medium text-sm text-white">CV</p>
