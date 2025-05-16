@@ -15,7 +15,7 @@ export default function HeroTextSection({isMobile = false}: Props) {
           Hello, welcome <span className="inline-block animate-wave origin-[70%_70%]">👋</span>
         </p>
         <section className="md:mt-10 mt-6 md:hidden">
-          <p className={`${nameTextStyle}`}>I`m Muhammad Difa`</p>
+          <p className={`${nameTextStyle}`}>I'm Muhammad Difa'</p>
           <p className={`${nameTextStyle}`}>Sulthon Diani</p>
           <p className={`${roleTextStyle}`}>(Front End Engineer)</p>
         </section>
