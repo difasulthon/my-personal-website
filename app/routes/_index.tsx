@@ -65,25 +65,17 @@ export default function Index() {
       </div>
       {theme === Theme.LIGHT && <div className="border-b-2 border-b-gray-200 md:mr-56 md:ml-56 hidden md:block"></div>}
       <section ref={trackRecordsRef} className="flex flex-col md:px-56 px-8 md:pt-24 pt-4 pb-36 dark:bg-backgroundDark bg-white">
-        <motion.section
-          variants={fadeUp}
-          initial="hidden"
-          animate={isTrackRecordsInView ? "visible" : "hidden"}
-          transition={{ duration: 0.5 }}
+        <div
           className="flex flex-row gap-2 font-lexendDeca font-semibold md:text-3xl text-2xl"
         >
           <p className="text-yellow-400 dark:text-yellow-500">Track</p>
           <p className="">Records</p>
-        </motion.section>
-        <motion.p
-          variants={fadeUp}
-          initial="hidden"
-          animate={isTrackRecordsInView ? "visible" : "hidden"}
-          transition={{ duration: 0.5, delay: 0.2 }}
+        </div>
+        <p
           className="font-lexendDeca font-normal md:text-sm text-xs dark:text-gray-400 text-gray-600 md:max-w-[40vw] max-w-[75vw] mt-2 text-justify"
         >
           I’ve been building and shipping mobile applications with a focus on intuitive design, performance, and reliability. Over the years, I’ve contributed to projects of varying scale — from lightweight apps to complex systems — and collaborated with teams of all sizes, including cross-squad coordination in larger environments. Along the way, I’ve also deepened my knowledge through hands-on learning and structured training programs.
-        </motion.p>
+        </p>
         <section className="flex md:flex-row flex-col md:gap-12 gap-8 md:mt-12 mt-8">
           {TRACK_RECORDS.map((item, i) => (
             <motion.div

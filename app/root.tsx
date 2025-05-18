@@ -59,9 +59,7 @@ export function App({ children }: { children: React.ReactNode }) {
       </head>
       <body className="font-lexendDeca">
         <Navbar />
-        {/* <main className="pb-20 pt-0"> */}
-          {children}
-        {/* </main> */}
+        {children}
         <BottomMenu />
         <Outlet />
         <ScrollRestoration />
