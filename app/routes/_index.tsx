@@ -7,7 +7,10 @@ import { motion, useInView } from "framer-motion";
 
 import HeroConnectionButton from "~/components/layout/home/hero-connection-button";
 import HeroTextSection from "~/components/layout/home/hero-text-section";
-import { TRACK_RECORDS } from "~/constants";
+import TrackRecordItem from "~/components/layout/home/track-record-item";
+import { EXPERIENCES, TRACK_RECORDS } from "~/constants";
+import TrackRecordText from "~/components/layout/home/track-record-text";
+import { fadeUp, slideInRight } from "~/config/motion";
 
 export const meta: MetaFunction = () => {
   return [
@@ -21,14 +24,11 @@ export default function Index() {
 
   const introRef = useRef(null)
   const trackRecordsRef = useRef(null);
+  const experienceRef = useRef(null)
   
   const isIntroInView = useInView(introRef, { once: false, amount: 0.4 });
   const isTrackRecordsInView = useInView(trackRecordsRef, { once: false, amount: 0.4 });
-
-  const fadeUp = {
-    hidden: { opacity: 0, y: 40 },
-    visible: { opacity: 1, y: 0 },
-  };
+  const isExperienceInView = useInView(experienceRef, {once: false, amount: 0.4})
 
   return (
     <>
@@ -64,39 +64,70 @@ export default function Index() {
         </motion.section>
       </div>
       {theme === Theme.LIGHT && <div className="border-b-2 border-b-gray-200 md:mr-56 md:ml-56 hidden md:block"></div>}
-      <section ref={trackRecordsRef} className="flex flex-col md:px-56 px-8 md:pt-24 pt-4 pb-36 dark:bg-backgroundDark bg-white">
-        <div
-          className="flex flex-row gap-2 font-lexendDeca font-semibold md:text-3xl text-2xl"
+      <section ref={trackRecordsRef} className="flex flex-col md:px-56 px-8 md:pt-24 pt-4 pb-8 md:pb-24 dark:bg-backgroundDark bg-white">
+        <motion.div
+          variants={fadeUp}
+          initial="hidden"
+          animate={isTrackRecordsInView ? "visible" : "hidden"}
+          transition={{ duration: 0.5, delay: 0.3 + 1 * 0.2 }}
         >
-          <p className="text-yellow-400 dark:text-yellow-500">Track</p>
-          <p className="">Records</p>
-        </div>
-        <p
-          className="font-lexendDeca font-normal md:text-sm text-xs dark:text-gray-400 text-gray-600 md:max-w-[40vw] max-w-[75vw] mt-2 text-justify"
-        >
-          I’ve been building and shipping mobile applications with a focus on intuitive design, performance, and reliability. Over the years, I’ve contributed to projects of varying scale — from lightweight apps to complex systems — and collaborated with teams of all sizes, including cross-squad coordination in larger environments. Along the way, I’ve also deepened my knowledge through hands-on learning and structured training programs.
-        </p>
+          <TrackRecordText />
+        </motion.div>
         <section className="flex md:flex-row flex-col md:gap-12 gap-8 md:mt-12 mt-8">
           {TRACK_RECORDS.map((item, i) => (
+            <TrackRecordItem key={i} index={i} icon={item.icon} desc={item.desc} title={item.title} trackRecordsRef={trackRecordsRef} />
+          ))}
+        </section>
+      </section>
+      {theme === Theme.LIGHT && <div className="border-b-2 border-b-gray-200 md:mr-56 md:ml-56 hidden md:block"></div>}
+      <section ref={experienceRef} className="pt-4 md:pt-20 md:px-56 px-8 pb-36 dark:bg-backgroundDarkBlue bg-white">
+        <motion.div
+          variants={slideInRight}
+          initial="hidden"
+          animate={isExperienceInView ? "visible" : "hidden"}
+          transition={{ duration: 0.5, delay: 0.3 + 0 * 0.2 }}
+        >
+          <div
+            className="flex flex-row gap-2 font-lexendDeca font-semibold md:text-3xl text-2xl"
+          >
+            <p className="text-yellow-400 dark:text-yellow-500">My</p>
+            <p className="">Experiences</p>
+          </div>
+            <p
+              className="font-lexendDeca font-normal md:text-sm text-xs dark:text-gray-400 text-gray-600 md:max-w-[40vw] max-w-[75vw] mt-2 text-justify"
+            >
+              I bring hands-on experience from both full-time roles and freelance, delivering front end solutions across different projects and industries.
+          </p>
+        </motion.div>
+        <section className="flex md:flex-row flex-col md:gap-12 gap-8 md:mt-12 mt-8">
+          {EXPERIENCES.map((experience, i) => (
             <motion.div
               key={i}
-              variants={fadeUp}
+              variants={slideInRight}
               initial="hidden"
-              animate={isTrackRecordsInView ? "visible" : "hidden"}
+              animate={isExperienceInView ? "visible" : "hidden"}
               transition={{ duration: 0.5, delay: 0.4 + i * 0.2 }}
-              className="dark:bg-backgroundDarkBlue bg-gray-100 rounded-md flex flex-col md:w-72 md:h-72 w-[75vw] h-56 items-center py-5 px-4"
+              className="group relative dark:bg-backgroundDark bg-gray-100 rounded-md flex flex-col md:w-72 md:h-64 w-[75vw] h-56 py-5 px-4 font-lexendDeca"
             >
-              <img
-              src={item.icon}
-              alt="icon"
-              className="md:w-10 md:h-10 w-12 h-12"
-              />
-              <p className="font-lexendDeca font-semibold md:text-xl text-lg mt-8">
-                {item.title}
-              </p>
-              <p className="font-lexendDeca font-normal md:text-sm text-xs text-center mt-6 dark:text-gray-500 text-gray-400">
-                {item.desc}
-              </p>
+              <div className="transition-opacity duration-300 group-hover:opacity-0 group-hover:cursor-pointer">
+                <p className="font-normal md:text-base text-sm dark:text-gray-400 text-gray-500">
+                  {experience.time}
+                </p>
+                <p className="font-semibold md:text-lg text-base mt-1 dark:text-yellow-400 text-yellow-500">
+                  {experience.title}
+                </p>
+                <p className="font-medium md:text-sm text-sm">{experience.company}</p>
+                <p className="font-medium md:text-sm text-sm mt-4 dark:text-gray-400 text-gray-500">{experience.desc}</p>
+              </div>
+
+              <div className="absolute items-center flex flex-col top-0 left-0 w-full h-full px-4 py-5 transition-opacity duration-300 opacity-0 group-hover:opacity-100 overflow-y-auto">
+                <img
+                  src={experience.icon}
+                  alt="icon"
+                  className="md:w-48 md:h-24 w-12 h-12 dark:bg-gray-200 bg-white rounded-md"
+                />
+                <p className="font-medium text-center md:text-sm text-sm mt-4 dark:text-gray-400 text-gray-500">{experience.detail}</p>
+              </div>
             </motion.div>
           ))}
         </section>

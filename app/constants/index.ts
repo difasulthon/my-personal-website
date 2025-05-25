@@ -39,6 +39,33 @@ const TRACK_RECORDS = [
   },
 ]
 
+const EXPERIENCES = [
+  {
+    time: "Jan 2022 - now",
+    title: "Front End Developer",
+    company: "Jenius - PT SMBC Indonesia",
+    desc: "Jenius is a digital banking platform by Bank SMBC Indonesia, designed to simplify financial management through smart and user-friendly features.",
+    icon: "/images/jenius-logo.png",
+    detail: "Involve in Jenius App (Credit Card and Transaction), Jenius Admin Dashboard, and Jenius Daya App (Transaction) using Javascript, Typescript and React Native"
+  },
+  {
+    time: "Dec 2019 - Dec 2021",
+    title: "Software Engineer - Mobile",
+    company: "PT Xsis Mitra Utama",
+    desc: "Xsis is an IT consulting firm specializing in software development and talent outsourcing for enterprise clients.",
+    icon: "/images/xsis-logo.png",
+    detail: "Placement on PT Kalbe Farma and involve in Onekalbe Mobile Development, specifically on GA Online, Event Attendence, and Asset Monitoring using Javascript and React Native"
+  },
+  {
+    time: "Jan 2019 - Apr 2019",
+    title: "Internship (Network Field Engineer)",
+    company: "PT Datacomm Diangraha",
+    desc: "Datacom is an IT solutions company providing system integration and infrastructure services for various industries.",
+    icon: "/images/datacomm-logo.png",
+    detail: "Contribute to enhance bandwidth project in several cities in Java"
+  },
+]
+
 export {
-  MENU, TRACK_RECORDS
+  MENU, TRACK_RECORDS, EXPERIENCES
 }
