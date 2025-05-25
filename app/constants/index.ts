@@ -53,7 +53,7 @@ const EXPERIENCES = [
     title: "Software Engineer - Mobile",
     company: "PT Xsis Mitra Utama",
     desc: "Xsis is an IT consulting firm specializing in software development and talent outsourcing for enterprise clients.",
-    icon: "/images/xsis-logo.png",
+    icon: "/images/xsis-logo.jpeg",
     detail: "Placement on PT Kalbe Farma and involve in Onekalbe Mobile Development, specifically on GA Online, Event Attendence, and Asset Monitoring using Javascript and React Native"
   },
   {
