@@ -113,14 +113,14 @@ export default function Index() {
                 <p className="font-normal md:text-base text-sm dark:text-gray-400 text-gray-500">
                   {experience.time}
                 </p>
-                <p className="font-semibold md:text-lg text-base mt-1 dark:text-yellow-400 text-yellow-500">
+                <p className="font-semibold md:text-lg text-base mt-1 dark:text-yellow-400 text-yellow-400">
                   {experience.title}
                 </p>
                 <p className="font-medium md:text-sm text-sm">{experience.company}</p>
                 <p className="font-medium md:text-sm text-sm mt-4 dark:text-gray-400 text-gray-500">{experience.desc}</p>
               </div>
 
-              <div className="absolute items-center flex flex-col top-0 left-0 w-full h-full px-4 py-5 transition-opacity duration-300 opacity-0 group-hover:opacity-100 overflow-y-auto">
+              <div className="absolute items-center flex flex-col top-0 left-0 w-full h-full px-4 py-5 transition-opacity duration-300 opacity-0 group-hover:opacity-100 group-hover:cursor-pointer overflow-y-auto">
                 <img
                   src={experience.icon}
                   alt="icon"

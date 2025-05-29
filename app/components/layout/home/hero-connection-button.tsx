@@ -35,7 +35,7 @@ export default function HeroConnectionButton() {
         <p className="font-medium text-sm">follow</p>
       </Link>
       <a
-        href='/files/Resume_Muhammad Difa Sulthon Diani.pdf'
+        href='/files/Front End Dev_Muhammad Difa Sulthon Diani.pdf'
         download
         target="_blank"
         rel="noopener noreferrer"
