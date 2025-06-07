@@ -12,7 +12,7 @@ export default function TechStackItem(props: Props) {
 
   return (
     <motion.div
-      className="dark:bg-backgroundDarkBlue bg-gray-100 rounded-md flex flex-row md:w-60 md:h-14 w-44 h-9 items-center px-4 py-1 gap-4"
+      className="dark:bg-backgroundDarkBlue bg-gray-100 rounded-md flex flex-row md:w-60 md:h-14 w-44 h-9 items-center px-4 py-1 md:gap-4 gap-2"
       animate={{
         y: [0, -6, 0],
       }}
