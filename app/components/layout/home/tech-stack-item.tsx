@@ -3,11 +3,12 @@ import { motion } from "framer-motion";
 
 type Props = {
   color: string,
-  name: string
+  name: string,
+  index: number
 }
 
 export default function TechStackItem(props: Props) {
-  const {color, name} = props
+  const {color, name, index} = props
 
   return (
     <motion.div
@@ -19,6 +20,7 @@ export default function TechStackItem(props: Props) {
         duration: 2,
         repeat: Infinity,
         ease: "easeInOut",
+        delay: index * 0.4
       }}
     >
       <div className={`${color} rounded-sm p-1`}>
