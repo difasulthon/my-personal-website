@@ -8,9 +8,17 @@ import { motion, useInView } from "framer-motion";
 import HeroConnectionButton from "~/components/layout/home/hero-connection-button";
 import HeroTextSection from "~/components/layout/home/hero-text-section";
 import TrackRecordItem from "~/components/layout/home/track-record-item";
-import { EXPERIENCES, TRACK_RECORDS } from "~/constants";
-import TrackRecordText from "~/components/layout/home/track-record-text";
-import { fadeUp, slideInRight } from "~/config/motion";
+import TitleSection from "~/components/layout/home/title-section";
+import { EXPERIENCES, TRACK_RECORDS, TITLE_SECTION, TECH_STACK as LIST_TECH_STACK } from "~/constants";
+import { fadeUp, slideInRight, slideInLeft } from "~/config/motion";
+import ExperienceItem from "~/components/layout/home/experience-item";
+import TechStackItem from "~/components/layout/home/tech-stack-item";
+
+const {
+  TRACK_RECORD,
+  EXPERIENCE,
+  TECH_STACK
+} = TITLE_SECTION
 
 export const meta: MetaFunction = () => {
   return [
@@ -24,11 +32,13 @@ export default function Index() {
 
   const introRef = useRef(null)
   const trackRecordsRef = useRef(null);
-  const experienceRef = useRef(null)
+  const experienceRef = useRef(null);
+  const skillRef = useRef(null)
   
   const isIntroInView = useInView(introRef, { once: false, amount: 0.4 });
   const isTrackRecordsInView = useInView(trackRecordsRef, { once: false, amount: 0.4 });
-  const isExperienceInView = useInView(experienceRef, {once: false, amount: 0.4})
+  const isExperienceInView = useInView(experienceRef, {once: false, amount: 0.4});
+  const isSkillInView = useInView(skillRef, {once: false, amount: 0.4});
 
   return (
     <>
@@ -63,7 +73,10 @@ export default function Index() {
           <HeroTextSection isMobile />
         </motion.section>
       </div>
+
       {theme === Theme.LIGHT && <div className="border-b-2 border-b-gray-200 md:mr-56 md:ml-56 hidden md:block"></div>}
+
+      {/* Track Records Section */}
       <section ref={trackRecordsRef} className="flex flex-col md:px-56 px-8 md:pt-24 pt-4 pb-8 md:pb-24 dark:bg-backgroundDark bg-white">
         <motion.div
           variants={fadeUp}
@@ -71,7 +84,7 @@ export default function Index() {
           animate={isTrackRecordsInView ? "visible" : "hidden"}
           transition={{ duration: 0.5, delay: 0.3 + 1 * 0.2 }}
         >
-          <TrackRecordText />
+          <TitleSection title={TRACK_RECORD.title} subtitle={TRACK_RECORD.subtitle} />
         </motion.div>
         <section className="flex md:flex-row flex-col md:gap-12 gap-8 md:mt-12 mt-8">
           {TRACK_RECORDS.map((item, i) => (
@@ -79,58 +92,59 @@ export default function Index() {
           ))}
         </section>
       </section>
+
       {theme === Theme.LIGHT && <div className="border-b-2 border-b-gray-200 md:mr-56 md:ml-56 hidden md:block"></div>}
-      <section ref={experienceRef} className="pt-4 md:pt-20 md:px-56 px-8 pb-36 dark:bg-backgroundDarkBlue bg-white">
+
+      {/* My Experiences section  */}
+      <section ref={experienceRef} className="pt-4 md:pt-20 md:px-56 px-8 md:pb-24 dark:bg-backgroundDarkBlue bg-white">
         <motion.div
           variants={slideInRight}
           initial="hidden"
           animate={isExperienceInView ? "visible" : "hidden"}
           transition={{ duration: 0.5, delay: 0.3 + 0 * 0.2 }}
         >
-          <div
-            className="flex flex-row gap-2 font-lexendDeca font-semibold md:text-3xl text-2xl"
-          >
-            <p className="text-yellow-400 dark:text-yellow-500">My</p>
-            <p className="">Experiences</p>
-          </div>
-            <p
-              className="font-lexendDeca font-normal md:text-sm text-xs dark:text-gray-400 text-gray-600 md:max-w-[40vw] max-w-[75vw] mt-2 text-justify"
-            >
-              I bring hands-on experience from both full-time roles and freelance, delivering front end solutions across different projects and industries.
-          </p>
+          <TitleSection title={EXPERIENCE.title} subtitle={EXPERIENCE.subtitle} />
         </motion.div>
         <section className="flex md:flex-row flex-col md:gap-12 gap-8 md:mt-12 mt-8">
           {EXPERIENCES.map((experience, i) => (
-            <motion.div
-              key={i}
-              variants={slideInRight}
-              initial="hidden"
-              animate={isExperienceInView ? "visible" : "hidden"}
-              transition={{ duration: 0.5, delay: 0.4 + i * 0.2 }}
-              className="group relative dark:bg-backgroundDark bg-gray-100 rounded-md flex flex-col md:w-72 md:h-64 w-[75vw] h-56 py-5 px-4 font-lexendDeca"
-            >
-              <div className="transition-opacity duration-300 group-hover:opacity-0 group-hover:cursor-pointer">
-                <p className="font-normal md:text-base text-sm dark:text-gray-400 text-gray-500">
-                  {experience.time}
-                </p>
-                <p className="font-semibold md:text-lg text-base mt-1 dark:text-yellow-400 text-yellow-400">
-                  {experience.title}
-                </p>
-                <p className="font-medium md:text-sm text-sm">{experience.company}</p>
-                <p className="font-medium md:text-sm text-sm mt-4 dark:text-gray-400 text-gray-500">{experience.desc}</p>
-              </div>
-
-              <div className="absolute items-center flex flex-col top-0 left-0 w-full h-full px-4 py-5 transition-opacity duration-300 opacity-0 group-hover:opacity-100 group-hover:cursor-pointer overflow-y-auto">
-                <img
-                  src={experience.icon}
-                  alt="icon"
-                  className="md:w-48 md:h-24 w-12 h-12 dark:bg-gray-200 bg-white rounded-md"
-                />
-                <p className="font-medium text-center md:text-sm text-sm mt-4 dark:text-gray-400 text-gray-500">{experience.detail}</p>
-              </div>
-            </motion.div>
+            <ExperienceItem 
+              key={i} 
+              index={i} 
+              time={experience.time} 
+              title={experience.title} 
+              company={experience.company} 
+              icon={experience.icon}
+              desc={experience.desc}
+              detail={experience.detail}
+              experienceRef={experienceRef}
+            />
           ))}
         </section>
+      </section>
+
+      {theme === Theme.LIGHT && <div className="border-b-2 border-b-gray-200 md:mr-56 md:ml-56 hidden md:block"></div>}
+
+      {/* Tech Stack Section */}
+      <section ref={skillRef} className="flex flex-col md:px-56 px-8 md:pt-24 pt-4 pb-36 dark:bg-backgroundDark bg-white">
+        <motion.div
+          variants={slideInLeft}
+          initial="hidden"
+          animate={isSkillInView ? "visible" : "hidden"}
+          transition={{ duration: 0.5, delay: 0.3 + 0 * 0.2 }}
+        >
+          <TitleSection title={TECH_STACK.title} subtitle={TECH_STACK.subtitle} />
+        </motion.div>
+        <motion.div
+          variants={slideInLeft}
+          initial="hidden"
+          animate={isSkillInView ? "visible" : "hidden"}
+          transition={{ duration: 0.5, delay: 0.3 + 0 * 0.2 }}
+          className="grid md:grid-cols-4 grid-cols-2 md:gap-4 gap-2 md:mt-8 mt-4"
+        >
+         {LIST_TECH_STACK.map((item, i) => (
+          <TechStackItem key={i} color={item.color} name={item.name} />
+         ))}
+        </motion.div>
       </section>
     </>
   );

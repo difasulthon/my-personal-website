@@ -66,6 +66,81 @@ const EXPERIENCES = [
   },
 ]
 
+const TITLE_SECTION = {
+  TRACK_RECORD: {
+    title: {
+      firstLine: 'Track',
+      secondLine: 'Records'
+    },
+    subtitle: 'I’ve been building and shipping mobile applications with a focus on intuitive design, performance, and reliability. Over the years, I’ve contributed to projects of varying scale — from lightweight apps to complex systems — and collaborated with teams of all sizes, including cross-squad coordination in larger environments. Along the way, I’ve also deepened my knowledge through hands-on learning and structured training programs.'
+  },
+  EXPERIENCE: {
+    title: {
+      firstLine: 'My',
+      secondLine: 'Experiences'
+    },
+    subtitle: 'I have gained hands-on experience through roles ranging from internship and contract work to full-time employment, contributing front-end solutions across diverse projects and industries.'
+  },
+  TECH_STACK: {
+    title: {
+      firstLine: 'Tech',
+      secondLine: 'Stack'
+    },
+    subtitle: 'Tools and technologies I’ve used and learned throughout my development journey.'
+  }
+}
+
+const TECH_STACK = [
+  {
+    color: 'bg-yellow-500',
+    name: 'Javascript'
+  },
+  {
+    color: 'bg-blue-700',
+    name: 'Typescript'
+  },
+  {
+    color: 'bg-blue-400',
+    name: 'React'
+  },
+  {
+    color: 'bg-blue-800',
+    name: 'React Native'
+  },
+  {
+    color: 'bg-black',
+    name: 'Remix'
+  },
+  {
+    color: 'bg-blue-500',
+    name: 'Tailwind CSS'
+  },
+  {
+    color: 'bg-green-700',
+    name: 'NodeJS'
+  },
+  {
+    color: 'bg-blue-600',
+    name: 'SQL'
+  },
+  {
+    color: 'bg-pink-500',
+    name: 'GraphQL'
+  },
+  {
+    color: 'bg-orange-500',
+    name: 'Git'
+  },
+  {
+    color: 'bg-orange-600',
+    name: 'HonoJS'
+  },
+  {
+    color: 'bg-black',
+    name: 'Prisma'
+  }
+]
+
 export {
-  MENU, TRACK_RECORDS, EXPERIENCES
+  MENU, TRACK_RECORDS, EXPERIENCES, TITLE_SECTION, TECH_STACK
 }

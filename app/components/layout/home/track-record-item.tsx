@@ -16,7 +16,7 @@ export default function TrackRecordItem(props: Props) {
    const isTrackRecordsInView = useInView(trackRecordsRef, { once: false, amount: 0.4 });
 
   return (
-   <motion.div
+  <motion.div
     variants={fadeUp}
     initial="hidden"
     animate={isTrackRecordsInView ? "visible" : "hidden"}
