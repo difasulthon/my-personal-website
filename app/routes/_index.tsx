@@ -159,7 +159,7 @@ export default function Index() {
       {theme === Theme.LIGHT && <div className="border-b-2 border-b-gray-200 md:mr-56 md:ml-56 hidden md:block"></div>}
 
       {/* Get In Touch Section */}
-      <section ref={getInTouchRef} className="pt-4 md:pt-20 md:px-56 px-8 md:pb-24 pb-24 dark:bg-backgroundDarkBlue bg-white">
+      <section ref={getInTouchRef} className="pt-4 md:pt-20 md:px-56 px-8 md:pb-24 pb-8 dark:bg-backgroundDarkBlue bg-white">
         <div className="bg-gray-100 dark:bg-backgroundDark md:py-8 py-6 px-4 rounded-md">
           <motion.div
             variants={slideInRight}

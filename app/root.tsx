@@ -14,6 +14,7 @@ import { themeSessionResolver } from "./sessions.server"
 import "./tailwind.css";
 import Navbar from "./components/shared/navbar";
 import BottomMenu from "./components/shared/bottom-menu";
+import Footer from "./components/shared/footer";
 
 export async function loader({ request }: LoaderFunctionArgs) {
   const { getTheme } = await themeSessionResolver(request)
@@ -60,8 +61,9 @@ export function App({ children }: { children: React.ReactNode }) {
       <body className="font-lexendDeca">
         <Navbar />
         {children}
-        <BottomMenu />
         <Outlet />
+        <BottomMenu />
+        <Footer />
         <ScrollRestoration />
         <Scripts />
       </body>
