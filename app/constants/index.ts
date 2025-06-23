@@ -109,7 +109,7 @@ const TECH_STACK = [
   },
   {
     color: 'bg-black',
-    name: 'Remix'
+    name: 'NextJS'
   },
   {
     color: 'bg-blue-500',

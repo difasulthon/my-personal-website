@@ -10,7 +10,7 @@ import {MailPlus} from 'lucide-react'
 import HeroConnectionButton from "~/components/layout/home/hero-connection-button";
 import HeroTextSection from "~/components/layout/home/hero-text-section";
 import TrackRecordItem from "~/components/layout/home/track-record-item";
-import TitleSection from "~/components/layout/home/title-section";
+import TitleSection from "~/components/shared/title-section";
 import ExperienceItem from "~/components/layout/home/experience-item";
 import TechStackItem from "~/components/layout/home/tech-stack-item";
 import { Button } from "~/components/ui/button";

@@ -1,9 +1,9 @@
-type Props = {
+export type Props = {
   title: {
     firstLine: string,
     secondLine: string
   },
-  subtitle: string
+  subtitle?: string
 }
 
 export default function TitleSection(props: Props) {
@@ -18,7 +18,7 @@ export default function TitleSection(props: Props) {
       <p
         className="font-lexendDeca font-normal md:text-sm text-xs dark:text-gray-400 text-gray-600 md:max-w-[40vw] max-w-[75vw] mt-2 text-justify"
       >
-        {props.subtitle}
+        {props.subtitle && props.subtitle}
       </p>
     </>
   )
