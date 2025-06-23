@@ -1,5 +1,6 @@
 import type { MetaFunction } from "@remix-run/node";
 import { Link } from "@remix-run/react";
+import { motion } from "framer-motion";
 
 import DateLocation from "~/components/layout/experience/date-location";
 import TitleSection from "~/components/shared/title-section";
@@ -29,8 +30,12 @@ export default function Experiences() {
            const isEven = index % 2 === 0;
           
           return (
-            <div
+            <motion.div
               key={index}
+              initial={{ opacity: 0, y: 60 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: false, amount: 0.3 }}
+              transition={{ duration: 0.5, delay: index * 0.1, ease: "easeOut" }}
               className={`w-full flex flex-col md:flex-row ${isEven ? 'md:justify-start' : 'md:justify-end'} ${
                 index > 0 ? 'md:mt-20 mt-10' : 'mt-0'
               } relative`}
@@ -78,7 +83,7 @@ export default function Experiences() {
                   </ul>
                 </div>
               </div>
-            </div>
+            </motion.div>
         )})}
       </div>
     </div>
