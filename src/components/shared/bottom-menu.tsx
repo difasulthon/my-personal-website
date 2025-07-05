@@ -1,3 +1,4 @@
+import { memo } from 'react'
 import { useLocation } from 'react-router-dom'
 import { GoHomeFill } from "react-icons/go";
 import { FaToolbox } from "react-icons/fa6";
@@ -19,7 +20,7 @@ function MenuIcon({title}: {title: string}) {
   }
 }
 
-export default function BottomMenu() {
+const BottomMenu = memo(() => {
   const location = useLocation();
   const currentPath = location.pathname;
 
@@ -42,4 +43,6 @@ export default function BottomMenu() {
       ))}
     </section>
   )
-}
+})
+
+export default BottomMenu
