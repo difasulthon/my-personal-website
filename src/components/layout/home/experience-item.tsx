@@ -1,7 +1,7 @@
 import React from 'react'
 import { motion, useInView } from "framer-motion";
 
-import { slideInRight } from '~/config/motion';
+import { slideInRight } from '../../../config/motion';
 
 type Props = {
   index: number,

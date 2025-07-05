@@ -1,4 +1,3 @@
-import { Link } from "@remix-run/react";
 
 export default function NotFound() {
   return (
@@ -14,9 +13,9 @@ export default function NotFound() {
         <p className="mt-6 mb-1 font-lexendDeca md:text-lg text-xs font-medium text-center dark:text-white text-black">This page is under construction. We’re working hard to bring you an amazing experience.</p>
         <p className="font-lexendDeca md:text-lg text-xs font-medium dark:text-white text-black">Stay Tuned!</p>
       </section>
-      <Link to='/' className="md:mt-14 mt-10 bg-backgroundDarkBlue dark:bg-[#0e76a8] md:py-3 md:px-3 px-2 py-2 rounded-md text-white font-lexendDeca md:font-normal text-sm">
+      <a href='/' className="md:mt-14 mt-10 bg-backgroundDarkBlue dark:bg-[#0e76a8] md:py-3 md:px-3 px-2 py-2 rounded-md text-white font-lexendDeca md:font-normal text-sm">
         Back to Home
-      </Link>
+      </a>
     </div>
   )
 }

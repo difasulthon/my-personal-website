@@ -1,6 +1,6 @@
 import React from "react";
 import { motion, useInView } from "framer-motion";
-import { fadeUp } from '~/config/motion';
+import { fadeUp } from '../../../config/motion';
 
 type Props = {
   icon: string,
