@@ -1,0 +1,8 @@
+[build]
+  command = "yarn build"
+  publish = "build" # Sesuaikan dengan outDir di vite.config.ts
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
