@@ -1,21 +1,21 @@
 import { useRef } from "react";
 
-import type { MetaFunction } from "@remix-run/node";
-import { Theme, useTheme } from "remix-themes";
-
 import { motion, useInView } from "framer-motion";
 
 import {MailPlus} from 'lucide-react'
 
-import HeroConnectionButton from "~/components/layout/home/hero-connection-button";
-import HeroTextSection from "~/components/layout/home/hero-text-section";
-import TrackRecordItem from "~/components/layout/home/track-record-item";
-import TitleSection from "~/components/shared/title-section";
-import ExperienceItem from "~/components/layout/home/experience-item";
-import TechStackItem from "~/components/layout/home/tech-stack-item";
-import { Button } from "~/components/ui/button";
-import { EXPERIENCES, TRACK_RECORDS, TITLE_SECTION, TECH_STACK as LIST_TECH_STACK } from "~/constants";
-import { fadeUp, slideInRight, slideInLeft } from "~/config/motion";
+import { useTheme } from "../theme/provider";
+
+import HeroConnectionButton from "../components/layout/home/hero-connection-button";
+import HeroTextSection from "../components/layout/home/hero-text-section";
+import TrackRecordItem from "../components/layout/home/track-record-item";
+import TitleSection from "../components/shared/title-section";
+import DocumentHead from "../components/shared/document-head";
+import ExperienceItem from "../components/layout/home/experience-item";
+import TechStackItem from "../components/layout/home/tech-stack-item";
+import { Button } from "../components/ui/button";
+import { EXPERIENCES, TRACK_RECORDS, TITLE_SECTION, TECH_STACK as LIST_TECH_STACK } from "../constants";
+import { fadeUp, slideInRight, slideInLeft } from "../config/motion";
 
 const {
   TRACK_RECORD,
@@ -23,15 +23,8 @@ const {
   TECH_STACK
 } = TITLE_SECTION
 
-export const meta: MetaFunction = () => {
-  return [
-    { title: "Difa Sulthon | Home" },
-    { name: "description", content: "Difa Sulthon's personal website" },
-  ];
-};
-
 export default function Index() { 
-  const [theme] = useTheme()
+  const {theme} = useTheme()
 
   const introRef = useRef(null)
   const trackRecordsRef = useRef(null);
@@ -51,6 +44,10 @@ export default function Index() {
 
   return (
     <>
+      <DocumentHead
+        title="Difa Sulthon | Home" 
+        description="Highlight of Difa Sulthon"
+      />
       <div ref={introRef} className="flex md:flex-row flex-col justify-between md:px-56 px-8 md:pt-24 pt-4 md:pb-36 pb-8 dark:bg-backgroundDarkBlue bg-white">
         <motion.section
           initial={{ opacity: 0 }}
@@ -83,7 +80,7 @@ export default function Index() {
         </motion.section>
       </div>
 
-      {theme === Theme.LIGHT && <div className="border-b-2 border-b-gray-200 md:mr-56 md:ml-56 hidden md:block"></div>}
+      {theme === 'light' && <div className="border-b-2 border-b-gray-200 md:mr-56 md:ml-56 hidden md:block"></div>}
 
       {/* Track Records Section */}
       <section ref={trackRecordsRef} className="flex flex-col md:px-56 px-8 md:pt-24 pt-4 pb-8 md:pb-24 dark:bg-backgroundDark bg-white">
@@ -102,7 +99,7 @@ export default function Index() {
         </section>
       </section>
 
-      {theme === Theme.LIGHT && <div className="border-b-2 border-b-gray-200 md:mr-56 md:ml-56 hidden md:block"></div>}
+      {theme === 'light' && <div className="border-b-2 border-b-gray-200 md:mr-56 md:ml-56 hidden md:block"></div>}
 
       {/* My Experiences section  */}
       <section ref={experienceRef} className="pt-4 md:pt-20 md:px-56 px-8 md:pb-24 pb-8 dark:bg-backgroundDarkBlue bg-white">
@@ -131,7 +128,7 @@ export default function Index() {
         </section>
       </section>
 
-      {theme === Theme.LIGHT && <div className="border-b-2 border-b-gray-200 md:mr-56 md:ml-56 hidden md:block"></div>}
+      {theme === 'light' && <div className="border-b-2 border-b-gray-200 md:mr-56 md:ml-56 hidden md:block"></div>}
 
       {/* Tech Stack Section */}
       <section ref={skillRef} className="flex flex-col md:px-56 px-8 md:pt-24 pt-4 pb-8 md:pb-24 dark:bg-backgroundDark bg-white">
@@ -156,7 +153,7 @@ export default function Index() {
         </motion.div>
       </section>
 
-      {theme === Theme.LIGHT && <div className="border-b-2 border-b-gray-200 md:mr-56 md:ml-56 hidden md:block"></div>}
+      {theme === 'light' && <div className="border-b-2 border-b-gray-200 md:mr-56 md:ml-56 hidden md:block"></div>}
 
       {/* Get In Touch Section */}
       <section ref={getInTouchRef} className="pt-4 md:pt-20 md:px-56 px-8 md:pb-24 pb-8 dark:bg-backgroundDarkBlue bg-white">

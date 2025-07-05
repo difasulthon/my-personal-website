@@ -1,10 +1,10 @@
-import { Link, useLocation } from '@remix-run/react'
+import { useLocation } from 'react-router-dom'
 import { GoHomeFill } from "react-icons/go";
 import { FaToolbox } from "react-icons/fa6";
 import { RiClapperboardFill } from "react-icons/ri";
 import { FaPerson } from "react-icons/fa6";
 
-import { MENU } from '~/constants'
+import { MENU } from '../../constants'
 
 function MenuIcon({title}: {title: string}) {
   switch(title) {
@@ -29,16 +29,16 @@ export default function BottomMenu() {
   return (
     <section className='fixed bottom-0 left-0 w-full py-4 px-12 flex flex-row justify-between dark:bg-backgroundDark bg-gray-100 md:hidden z-50'>
       {MENU.map((menu) => (
-        <Link
+        <a
           key={menu.id} 
-          to={menu.href} 
+          href={menu.href} 
           className={`
               ${currentPath === menu.href ? `${menuActiveStyle}` : `${textStyle}`} 
               px-2 py-2 rounded-sm
             `}
           >
             <MenuIcon title={menu.title} />
-        </Link>
+        </a>
       ))}
     </section>
   )
