@@ -1,6 +1,6 @@
 [build]
   command = "yarn build"
-  publish = "build" # Sesuaikan dengan outDir di vite.config.ts
+  publish = "dist"
 
 [[redirects]]
   from = "/*"
