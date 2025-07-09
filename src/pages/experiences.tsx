@@ -1,3 +1,7 @@
+import { useEffect, useState } from "react";
+
+import { ChevronDown, ChevronUp } from "lucide-react";
+
 import { motion } from "framer-motion";
 
 import DateLocation from "../components/layout/experience/date-location";
@@ -12,6 +16,20 @@ export default function Experiences() {
     secondLine: 'Experiences'
   }
 
+  const [expandedItems, setExpandedItems] = useState<boolean[]>([]);
+
+  useEffect(() => {
+    setExpandedItems(Array(experiences.length).fill(false));
+  }, []);
+
+  const toggleExpanded = (index: number) => {
+    setExpandedItems(prev => {
+      const newState = [...prev];
+      newState[index] = !newState[index];
+      return newState;
+    });
+  };
+
   return (
     <>
       <DocumentHead
@@ -25,6 +43,10 @@ export default function Experiences() {
           <div className="absolute left-6 md:left-1/2 md:top-24 top-16 bottom-2 w-0.5 bg-gray-300 z-0 mt-11" />
           {experiences.map((item, index) => {
             const isEven = index % 2 === 0;
+            const isExpanded = expandedItems[index];
+            const infoToShow = isExpanded ? item.information : item.information.slice(0, 1);
+            const techToShow = isExpanded ? item.tech : item.tech.slice(0, 5);
+            const toolsToShow = isExpanded ? item.tools : item.tools.slice(0, 5);
             
             return (
               <motion.div
@@ -55,15 +77,16 @@ export default function Experiences() {
                           <p className="md:text-sm text-xs text-gray-500">({item.employeeType})</p>
                         </div>
                     </a>
+                    {/* Information Section */}
                     <ul className="list-disc ml-5 md:text-sm text-xs">
-                      {item.information.map((info, idx: number) => (
+                      {infoToShow.map((info, idx: number) => (
                         <li key={idx} className="mb-2">{info}</li>
                       ))}
                     </ul>
                     {/* Tech Section */}
                     <h6 className="font-semibold dark:text-white text-black md:text-lg text-base">Tech</h6>
                     <ul className="flex flex-wrap gap-2 mt-2">
-                      {item.tech.map((item, index: number) => (
+                      {techToShow.map((item, index: number) => (
                         <li key={index} className="dark:bg-backgroundDarkBlue bg-white rounded-sm md:p-2 p-1">
                           <p className="md:text-sm text-xs font-semibold">{item}</p>
                         </li>
@@ -72,12 +95,23 @@ export default function Experiences() {
                     {/* Tools Section */}
                     <h6 className="font-semibold dark:text-white text-black mt-3 md:text-lg text-base">Tools</h6>
                     <ul className="flex flex-wrap gap-2 mt-2">
-                      {item.tools.map((item, index: number) => (
+                      {toolsToShow.map((item, index: number) => (
                         <li key={index} className="dark:bg-backgroundDarkBlue bg-white rounded-sm md:p-2 p-1">
                           <p className="md:text-sm text-xs font-semibold">{item}</p>
                         </li>
                       ))}
                     </ul>
+                    {/* Toggle Show More / Less */}
+                    {item.information.length > 1 && item.tech.length > 5 && item.tools.length > 5  && (
+                      <section className="flex justify-center my-4">
+                        <button onClick={() => toggleExpanded(index)} className="flex flex-row font-normal text-sm dark:text-white text-black">
+                          {isExpanded ? "Show Less" : "Show More"}
+                          <span className="ml-2">
+                            {isExpanded ? <ChevronUp /> : <ChevronDown />}
+                          </span>
+                        </button>
+                      </section>
+                    )}
                   </div>
                 </div>
               </motion.div>
