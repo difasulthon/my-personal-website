@@ -24,8 +24,8 @@ const MENU = [
 const TRACK_RECORDS = [
   {
     icon: "/images/work-active.png",
-    title: "+4 years experience",
-    desc: "Four years of hands-on experience working as a front-end and mobile app developer.",
+    title: "+5 years experience",
+    desc: "Five years of hands-on experience working as a front-end and mobile app developer.",
   },
   {
     icon: "/images/project-active.png",

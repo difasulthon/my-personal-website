@@ -66,7 +66,7 @@ export default function Index() {
           <img
             src="/images/hero-difa.png"
             alt="difasulthon-photo"
-            className="rounded-md md:h-96 md:w-96 h-80 w-80 grayscale hover:grayscale-0 transition duration-300"
+            className="rounded-md md:h-96 md:w-80 h-80 w-80 grayscale hover:grayscale-0 transition duration-300"
           />
         </motion.section>
 
